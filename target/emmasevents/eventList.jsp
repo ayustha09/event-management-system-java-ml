@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="assets/styles.css">
 </head>
 <body>
-    <h1>List of Events</h1>
+    <h1>Event Management</h1>
 
     <nav>
         <a href="index.jsp">Home</a>
@@ -43,6 +43,7 @@
         List<Event> events = (List<Event>) request.getAttribute("events");
         if (events != null && !events.isEmpty()) {
     %>
+    <h1>List of Events</h1>
     <div style="margin-top: 30px;">
         <table>
             <tr>
@@ -67,9 +68,10 @@
                 <td><%= event.getType() %></td>
                 <td><%= event.getAttendees() %></td>
                 <td>
-                    <a href="edit?id=<%= event.getId() %>" class="btn-edit">Edit</a>
-                    <a href="delete?id=<%= event.getId() %>" class="btn-delete" onclick="return confirm('Are you sure you want to delete ?')">Delete</a>
-                    <a href="rsvp?id=<%= event.getId() %>" class="btn-rsvp">RSVP</a>
+                    <a href="edit?id=<%= event.getId() %>" class="action-btn edit-btn">Edit</a>
+<a href="delete?id=<%= event.getId() %>" class="action-btn delete-btn" onclick="return confirm('Are you sure?')">Delete</a>
+                    <a href="rsvp?id=<%= event.getId() %>" class="action-btn rsvp-btn">RSVP</a>
+                    
                 </td>
             </tr>
             <%

@@ -1,143 +1,123 @@
-
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #fff8f0;
-    color: #444;
-    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 30px;
     margin: 0;
 }
 
 h1, h2 {
-    color: #ff8fab;
+    color: #1f2d3d;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 nav {
-    margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 nav a {
     text-decoration: none;
-    color: #fff;
-    background-color: #f8a5c2;
-    padding: 10px 15px;
-    margin-right: 10px;
-    border-radius: 5px;
+    background-color: #5a9ba5;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 6px;
+    display: inline-block;
     transition: background-color 0.3s ease;
 }
 
 nav a:hover {
-    background-color: #f78fb3;
+    background-color: #407580;
 }
 
 form {
-    background-color: #ffeef5;
-    padding: 15px;
-    border: 1px solid #ffc5d9;
-    border-radius: 10px;
-    max-width: 600px;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: auto;
+    margin-bottom: 30px;
 }
 
-input[type="text"], input[type="date"], input[type="number"], select {
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select {
     width: 100%;
     padding: 8px;
     margin-top: 4px;
-    margin-bottom: 12px;
-    border: 1px solid #ddd;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-input[type="submit"] {
-    background-color: #f78fb3;
+input[type="submit"],
+button {
+    background-color: #5a9ba5;
     color: white;
-    padding: 10px 20px;
+    padding: 10px 18px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-input[type="submit"]:hover {
-    background-color: #f55c8c;
+input[type="submit"]:hover,
+button:hover {
+    background-color: #407580;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 25px;
+    margin-top: 30px;
 }
 
 th, td {
     padding: 12px;
-    border: 1px solid #eee;
+    border: 1px solid #e3e3e3;
     text-align: left;
 }
 
 th {
-    background-color: #ffccd5;
+    background-color: #f1f5f8;
 }
 
 tr:nth-child(even) {
-    background-color: #fff0f5;
+    background-color: #f9f9f9;
 }
 
-.page-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    text-align: center;
-    position: relative;
-}
-
-.title-section {
-    position: absolute;
-    top: 25%;
-    transform: translateY(-50%);
-}
-
-.button-section {
-    position: absolute;
-    top: 55%;
-    transform: translateY(-50%);
-}
-
-.btn-edit {
-    background-color: #a5d8ff;
-    color: #003049;
+/* Action Buttons */
+.action-btn {
     padding: 6px 12px;
-    margin-right: 5px;
+    font-size: 14px;
+    color: white;
+    border: none;
     border-radius: 5px;
+    margin-right: 4px;
+    cursor: pointer;
     text-decoration: none;
-    font-weight: 500;
-}
-.btn-edit:hover {
-    background-color: #74c0fc;
 }
 
-.btn-delete {
-    background-color: #ffa8a8;
-    color: #590d22;
-    padding: 6px 12px;
-    margin-right: 5px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 500;
-}
-.btn-delete:hover {
-    background-color: #ff6b6b;
+.edit-btn {
+    background-color: #56a4b4;
 }
 
-.btn-rsvp {
-    background-color: #caffbf;
-    color: #006400;
-    padding: 6px 12px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 500;
-}
-.btn-rsvp:hover {
-    background-color: #b2f2bb;
+.delete-btn {
+    background-color: #68c6d8;
 }
 
+.rsvp-btn {
+    background-color: #4f8d9a;
+}
 
+.action-btn:hover {
+    opacity: 0.9;
+}
