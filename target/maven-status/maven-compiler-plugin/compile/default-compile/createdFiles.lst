@@ -1,0 +1,6 @@
+com\example\webapp\servlet\EditEventServlet.class
+com\example\webapp\servlet\DeleteEventServlet.class
+com\example\webapp\servlet\RSVPEventServlet.class
+com\example\webapp\servlet\EventServlet.class
+com\example\webapp\dao\EventDAO.class
+com\example\webapp\model\Event.class
