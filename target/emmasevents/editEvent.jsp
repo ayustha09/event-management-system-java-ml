@@ -45,7 +45,6 @@
             <label for="attendees">Attendees:</label><br>
             <input type="number" name="attendees" min="0" value="<%= event.getAttendees() %>" required />
         </div>
-        
 
         <div style="margin-bottom: 10px;">
             <label for="type">Event Type:</label><br>
@@ -84,7 +83,6 @@
             }
         }
 
-        // Show 'otherTypeDiv' if pre-filled
         window.onload = function() {
             toggleOtherTypeInput();
         };

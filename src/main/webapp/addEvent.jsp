@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add Event :  Emma’s Event Management</title>
+    <title>Add Event : Emma’s Event Management</title>
     <link rel="stylesheet" type="text/css" href="assets/styles.css">
 </head>
 <body>
@@ -32,12 +32,11 @@
             <label for="description">Description:</label><br>
             <input type="text" name="description" required />
         </div>
-        
+
         <div style="margin-bottom: 10px;">
             <label for="attendees">Attendees:</label><br>
             <input type="number" name="attendees" min="0" value="0" required />
         </div>
-        
 
         <div style="margin-bottom: 10px;">
             <label for="type">Event Type:</label><br>

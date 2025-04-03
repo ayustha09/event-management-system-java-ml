@@ -78,7 +78,6 @@ public class EventDAO {
         }
     }
 
-    // ✅ NEW: Get event by ID for editing
     public Event getEventById(int id) {
         String sql = "SELECT * FROM events WHERE id = ?";
         try (Connection conn = DriverManager.getConnection(DB_URL);
@@ -104,12 +103,11 @@ public class EventDAO {
         return null;
     }
 
-    // ✅ NEW: Update event after editing
     public void updateEvent(Event event) {
         String sql = "UPDATE events SET name = ?, date = ?, location = ?, description = ?, type = ?, attendees = ? WHERE id = ?";
         try (Connection conn = DriverManager.getConnection(DB_URL);
              PreparedStatement stmt = conn.prepareStatement(sql)) {
-    
+
             stmt.setString(1, event.getName());
             stmt.setString(2, event.getDate());
             stmt.setString(3, event.getLocation());
@@ -117,7 +115,7 @@ public class EventDAO {
             stmt.setString(5, event.getType());
             stmt.setInt(6, event.getAttendees());
             stmt.setInt(7, event.getId());
-    
+
             stmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -128,13 +126,60 @@ public class EventDAO {
         String sql = "DELETE FROM events WHERE id = ?";
         try (Connection conn = DriverManager.getConnection(DB_URL);
              PreparedStatement stmt = conn.prepareStatement(sql)) {
-    
+
             stmt.setInt(1, id);
             stmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
-    
+
+    public List<Event> getFilteredEvents(String type, String location, String date) {
+        List<Event> events = new ArrayList<>();
+        StringBuilder sql = new StringBuilder("SELECT * FROM events WHERE 1=1");
+
+        if (type != null && !type.isEmpty()) {
+            sql.append(" AND type LIKE ?");
+        }
+        if (location != null && !location.isEmpty()) {
+            sql.append(" AND location LIKE ?");
+        }
+        if (date != null && !date.isEmpty()) {
+            sql.append(" AND date = ?");
+        }
+
+        try (Connection conn = DriverManager.getConnection(DB_URL);
+             PreparedStatement stmt = conn.prepareStatement(sql.toString())) {
+
+            int index = 1;
+
+            if (type != null && !type.isEmpty()) {
+                stmt.setString(index++, "%" + type + "%");
+            }
+            if (location != null && !location.isEmpty()) {
+                stmt.setString(index++, "%" + location + "%");
+            }
+            if (date != null && !date.isEmpty()) {
+                stmt.setString(index++, date);
+            }
+
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Event event = new Event(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("date"),
+                        rs.getString("location"),
+                        rs.getString("description"),
+                        rs.getString("type"),
+                        rs.getInt("attendees")
+                );
+                events.add(event);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return events;
+    }
 }

@@ -6,7 +6,6 @@
 <html>
 <head>
     <title>List of Events : Emma’s Event Management</title>
-
     <link rel="stylesheet" type="text/css" href="assets/styles.css">
 </head>
 <body>
@@ -17,62 +16,71 @@
         <a href="addEvent.jsp">Add New Event</a>
     </nav>
 
+    <h2>Search & Filter</h2>
+    <form method="get" action="events" style="margin-bottom: 20px;">
+        <div style="margin-right: 10px; display:inline-block;">
+            <label for="type">Type:</label><br>
+            <input type="text" name="type" placeholder="e.g. Conference, Wedding etc." />
+        </div>
+
+        <div style="margin-right: 10px; display:inline-block;">
+            <label for="location">Location:</label><br>
+            <input type="text" name="location" placeholder="Enter location" />
+        </div>
+
+        <div style="margin-right: 10px; display:inline-block;">
+            <label for="date">Date:</label><br>
+            <input type="date" name="date" />
+        </div>
+
+        <div style="display:inline-block;">
+            <label>&nbsp;</label><br>
+            <input type="submit" value="Search" />
+        </div>
+    </form>
+
     <%
         List<Event> events = (List<Event>) request.getAttribute("events");
         if (events != null && !events.isEmpty()) {
     %>
-
-    <h2>Search & Filter</h2>
-<form method="get" action="events" style="margin-bottom: 20px;">
-    <label for="type">Type:</label>
-    <input type="text" name="type" placeholder="e.g. Conference, Wedding etc." />
-
-    <label for="location">Location:</label>
-    <input type="text" name="location" placeholder="Enter location" />
-
-    <label for="date">Date:</label>
-    <input type="date" name="date" />
-
-    <input type="submit" value="Search" />
-</form>
-
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Date</th>
-            <th>Location</th>
-            <th>Description</th>
-            <th>Type</th>
-            <th>Attendees</th>
-            <th>Actions</th>
-        </tr>
-        <%
-            for (Event event : events) {
-        %>
-        <tr>
-            <td><%= event.getId() %></td>
-            <td><%= event.getName() %></td>
-            <td><%= event.getDate() %></td>
-            <td><%= event.getLocation() %></td>
-            <td><%= event.getDescription() %></td>
-            <td><%= event.getType() %></td>
-            <td><%= event.getAttendees() %></td>
-            <td>
-                <a href="edit?id=<%= event.getId() %>">Edit</a> |
-                <a href="delete?id=<%= event.getId() %>" onclick="return confirm('Are you sure you want to delete ?')">Delete</a> |
-            <a href="rsvp?id=<%= event.getId() %>">RSVP</a>
-
-            </td>
-        </tr>
-        <%
-            }
-        %>
-    </table>
+    <div style="margin-top: 30px;">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Location</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Attendees</th>
+                <th>Actions</th>
+            </tr>
+            <%
+                for (Event event : events) {
+            %>
+            <tr>
+                <td><%= event.getId() %></td>
+                <td><%= event.getName() %></td>
+                <td><%= event.getDate() %></td>
+                <td><%= event.getLocation() %></td>
+                <td><%= event.getDescription() %></td>
+                <td><%= event.getType() %></td>
+                <td><%= event.getAttendees() %></td>
+                <td>
+                    <a href="edit?id=<%= event.getId() %>" class="btn-edit">Edit</a>
+                    <a href="delete?id=<%= event.getId() %>" class="btn-delete" onclick="return confirm('Are you sure you want to delete ?')">Delete</a>
+                    <a href="rsvp?id=<%= event.getId() %>" class="btn-rsvp">RSVP</a>
+                </td>
+            </tr>
+            <%
+                }
+            %>
+        </table>
+    </div>
     <%
         } else {
     %>
-        <p>No events found.</p>
+    <p>No events found.</p>
     <%
         }
     %>

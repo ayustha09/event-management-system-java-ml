@@ -15,16 +15,16 @@ public class EventServlet extends HttpServlet {
     private EventDAO eventDAO = new EventDAO();
 
     @Override
-protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    String type = req.getParameter("type");
-    String location = req.getParameter("location");
-    String date = req.getParameter("date");
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String type = req.getParameter("type");
+        String location = req.getParameter("location");
+        String date = req.getParameter("date");
 
-    List<Event> filteredEvents = eventDAO.getFilteredEvents(type, location, date);
+        List<Event> filteredEvents = eventDAO.getFilteredEvents(type, location, date);
 
-    req.setAttribute("events", filteredEvents);
-    req.getRequestDispatcher("eventList.jsp").forward(req, resp);
-}
+        req.setAttribute("events", filteredEvents);
+        req.getRequestDispatcher("eventList.jsp").forward(req, resp);
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -47,6 +47,6 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
             eventDAO.addEvent(event);
         }
 
-        resp.sendRedirect("events"); // same as before
+        resp.sendRedirect("events");
     }
 }
