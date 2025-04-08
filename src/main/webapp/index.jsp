@@ -15,6 +15,7 @@
             <nav>
                 <a href="events">View All Events</a>
                 <a href="addEvent.jsp">Add New Event</a>
+                <a href="predict.jsp">Predict Event Type</a>
             </nav>
         </div>
     </div>

@@ -19,7 +19,7 @@ public class EventDAO {
 
     private void createTableIfNotExists() throws SQLException {
         try (Connection connection = DriverManager.getConnection(DB_URL);
-             Statement statement = connection.createStatement()) {
+            Statement statement = connection.createStatement()) {
             String createTableSQL = "CREATE TABLE IF NOT EXISTS events (" +
                     "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                     "name TEXT NOT NULL," +
@@ -37,8 +37,8 @@ public class EventDAO {
         String sql = "SELECT * FROM events";
 
         try (Connection connection = DriverManager.getConnection(DB_URL);
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery(sql)) {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql)) {
 
             while (resultSet.next()) {
                 Event event = new Event(
@@ -63,7 +63,7 @@ public class EventDAO {
         String sql = "INSERT INTO events (name, date, location, description, type, attendees) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = DriverManager.getConnection(DB_URL);
-             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
             preparedStatement.setString(1, event.getName());
             preparedStatement.setString(2, event.getDate());
@@ -81,7 +81,7 @@ public class EventDAO {
     public Event getEventById(int id) {
         String sql = "SELECT * FROM events WHERE id = ?";
         try (Connection conn = DriverManager.getConnection(DB_URL);
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
@@ -106,7 +106,7 @@ public class EventDAO {
     public void updateEvent(Event event) {
         String sql = "UPDATE events SET name = ?, date = ?, location = ?, description = ?, type = ?, attendees = ? WHERE id = ?";
         try (Connection conn = DriverManager.getConnection(DB_URL);
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, event.getName());
             stmt.setString(2, event.getDate());
@@ -125,7 +125,7 @@ public class EventDAO {
     public void deleteEvent(int id) {
         String sql = "DELETE FROM events WHERE id = ?";
         try (Connection conn = DriverManager.getConnection(DB_URL);
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, id);
             stmt.executeUpdate();
@@ -149,7 +149,7 @@ public class EventDAO {
         }
 
         try (Connection conn = DriverManager.getConnection(DB_URL);
-             PreparedStatement stmt = conn.prepareStatement(sql.toString())) {
+            PreparedStatement stmt = conn.prepareStatement(sql.toString())) {
 
             int index = 1;
 

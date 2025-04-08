@@ -2,5 +2,7 @@ c:\Users\ayush\Desktop\emmasevents\src\main\java\com\example\webapp\servlet\Edit
 c:\Users\ayush\Desktop\emmasevents\src\main\java\com\example\webapp\servlet\DeleteEventServlet.java
 c:\Users\ayush\Desktop\emmasevents\src\main\java\com\example\webapp\model\Event.java
 c:\Users\ayush\Desktop\emmasevents\src\main\java\com\example\webapp\servlet\EventServlet.java
+c:\Users\ayush\Desktop\emmasevents\src\main\java\com\example\webapp\servlet\PredictEventServlet.java
 c:\Users\ayush\Desktop\emmasevents\src\main\java\com\example\webapp\servlet\RSVPEventServlet.java
+c:\Users\ayush\Desktop\emmasevents\src\main\java\com\example\webapp\weka\EventTrainer.java
 c:\Users\ayush\Desktop\emmasevents\src\main\java\com\example\webapp\dao\EventDAO.java
