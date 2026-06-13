@@ -18,7 +18,6 @@
             <label for="name">Event Name:</label><br>
             <input type="text" name="name" required />
         </div>
-
         <div style="margin-bottom: 10px;">
             <label for="date">Date (yyyy-mm-dd):</label><br>
             <input type="date" name="date" required />
